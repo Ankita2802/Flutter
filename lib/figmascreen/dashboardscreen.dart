@@ -16,12 +16,13 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   bool loading = true;
 
  int _currentindex=0;
+  // ignore: non_constant_identifier_names
   List Pages=[
-    HomeScreen(),
-    ExploreScreen(),
-    PlaywinScreen(),
-     OfferScreen(),
-    MoreScreen(),
+    const HomeScreen(),
+    const ExploreScreen(),
+    const PlaywinScreen(),
+     const OfferScreen(),
+    const MoreScreen(),
   
   ];
   void _onTapped(index){
@@ -33,26 +34,37 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.black,
         currentIndex: _currentindex,
-        iconSize: 20.0,
-        selectedItemColor: Color(0xffFFA500),
-        unselectedItemColor: Colors.black,
-        items:const <BottomNavigationBarItem>[
+        iconSize: 30.0,
+        selectedItemColor: Colors.cyan,
+        unselectedItemColor: Colors.white,
+        items:<BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon:Icon(Icons.home),
+          // icon: Image(image: AssetImage("assets/Vector (3).png"),height: 20,width: 20,fit: BoxFit.cover,),
+          icon: Icon(Icons.home),
             label: "Home",
+            backgroundColor: Colors.black,  
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart_rounded),
-            label: "Cart",
+              icon: Image.asset("assets/icons/explore (1).png"),
+            label: "Explore",
+             backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border),
-            label: "Like",
+             icon: Image.asset("assets/icons/Vector (5).png"),
+            label: "Play & Win",
+             backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
+             icon: Image.asset("assets/icons/Knockoff.png"),
+            label: "Offers",
+             backgroundColor: Colors.black,
+          ),
+            BottomNavigationBarItem(
+             icon: Image.asset("assets/icons/More.png"),
+            label: "More",
+             backgroundColor: Colors.black,
           ),
         ],
        onTap: _onTapped,
