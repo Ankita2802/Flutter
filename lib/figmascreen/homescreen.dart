@@ -174,26 +174,26 @@ class _HomeScreenState extends State<HomeScreen> {
                           SizedBox(width: 10,),
                           Text("SILVER",style: GoogleFonts.interTight(color: Colors.black,fontSize: 20.0,fontWeight: FontWeight.w500)),
                           SizedBox(width: 80,),
-        
+                        
                           Column(
                             children: [
                               Row(
                                 children: [
                                   Text("99",style: GoogleFonts.interTight(color: Color.fromRGBO(78, 72, 15, 1),fontSize: 24.0,),),
                                   SizedBox(width: 5,),
-  
+                  
                                 ],
                               ),
                               Text("1 Month validity",style: GoogleFonts.rubik(color: Colors.black),)
                             ],
                           ),
-    
+                    
                         ],
                       ),
                     ),
                   ),
-                SizedBox(height: 10,),
-                Container(
+                  SizedBox(height: 10,),
+                  Container(
                   height: 50,
                   width: double.infinity,
                   decoration: BoxDecoration(
@@ -201,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Colors.yellow.shade400,
                   ),
                   child: Center(child: Text("View Details",style: GoogleFonts.rubik(color: Colors.white,fontSize: 15),)),
-                )
+                  )
                     ]),
                 ),
               ),
@@ -211,8 +211,12 @@ class _HomeScreenState extends State<HomeScreen> {
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.black,
-                borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20.0))
+                borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20))
               ),
+              child: Column(children: [
+
+              ]),
+          
             )
           ]
         )

@@ -11,6 +11,17 @@ class _ExploreScreenState extends State<ExploreScreen> {
   Widget build(BuildContext context) {
      return Scaffold(
       backgroundColor: Colors.pink,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+           SizedBox(height: MediaQuery.of(context).size.height*0.5),
+           Container(
+            height: double.infinity,
+            width: double.infinity,
+            color: Colors.red,
+           )
+        ]),
+      ),
     );
   }
 }
