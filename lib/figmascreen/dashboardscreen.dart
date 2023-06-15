@@ -20,8 +20,8 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   List Pages=[
     const HomeScreen(),
     const ExploreScreen(),
-    const PlaywinScreen(),
-     const OfferScreen(),
+    // const PlaywinScreen(),
+     MyPage(),
     const MoreScreen(),
   
   ];

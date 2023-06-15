@@ -1,16 +1,46 @@
 import 'package:flutter/material.dart';
-class OfferScreen extends StatefulWidget {
-  const OfferScreen({super.key});
 
+class MyPage extends StatefulWidget {
   @override
-  State<OfferScreen> createState() => _OfferScreenState();
+  _MyPageState createState() => _MyPageState();
 }
 
-class _OfferScreenState extends State<OfferScreen> {
+class _MyPageState extends State<MyPage> {
+  bool isExpanded = false;
+
+  void toggleExpand() {
+    setState(() {
+      isExpanded = !isExpanded;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.cyan,
+      appBar: AppBar(
+        title: Text('Expand Example'),
+      ),
+      body: GestureDetector(
+        onTap: () {
+          toggleExpand();
+        },
+        child: Center(
+          child: Container(
+            color: Colors.blue,
+            width: isExpanded ? 300: 200.0,
+            height: isExpanded ? 300 : 100.0,
+            child: Center(
+              child: Text(
+                isExpanded ? 'Expanded' : 'Tap to Expand',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
