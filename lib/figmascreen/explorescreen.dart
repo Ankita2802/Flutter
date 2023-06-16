@@ -12,6 +12,43 @@ class ExploreScreen extends StatefulWidget {
 
 class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProviderStateMixin {
    late TabController? _tabController;
+   int selectedIndex = -1;
+   List DataList=[
+    {
+      "title":[
+         "assets/images/parpelstar.png",
+         "SELECT",
+         "10000",
+         "5000",
+         "1 Year validity"
+
+      ],
+      "items": [
+        'assets/images/greentick.png',
+        'Free access to all knocksense Events',
+        '75 Unlocks',
+        '25 Extra unlocks on singing up with a referral code',
+        '10 Cash Vouchers of 1000 each,worth 10000',
+        'Cash Vouchers are fully redeemable no min.bill value'
+      ],
+      "title":[
+         "assets/images/bluestar.png",
+         "SELECT",
+         "10000",
+         "5000",
+         "1 Year validity"
+
+      ],
+      "items": [
+        'assets/images/greentick.png',
+        'Free access to all knocksense Events',
+        '75 Unlocks',
+        '25 Extra unlocks on singing up with a referral code',
+        '10 Cash Vouchers of 1000 each,worth 10000',
+        'Cash Vouchers are fully redeemable no min.bill value'
+      ],
+    }
+   ];
   @override
   void initState() {
     _tabController = new TabController(length: 3, vsync: this);
@@ -23,6 +60,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
   }
   @override
   Widget build(BuildContext context) {
+     final Size size = MediaQuery.of(context).size;
     double height,width;
     height=MediaQuery.of(context).size.height;
     width=MediaQuery.of(context).size.width;
@@ -33,23 +71,24 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                  Container(
-                   height: MediaQuery.of(context).size.height*0.99,
-                   width: double.infinity,
+                   height: height/1,
+                   width: width/1,
                    child: Padding(
                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
                      child: SingleChildScrollView(
                        child: Column(children: [
-                          const SizedBox(height:30),
+                        const SizedBox(height: 20,),
                                Container(
-                                 height: 150,
-                                 width: 150,
+                                 height:150,
+                                 width: 100,
                                  decoration: const BoxDecoration(
+                              
                                    image: DecorationImage(
+                  
                                      image:AssetImage("assets/images/knLogo.png")
                                       ),
                                  ),
                                ),
-                       const SizedBox(height: 20,),
                        Row(
                          children: [
                              Icon(Icons.file_copy_rounded,color:Colors.white,size: 20.0,),
@@ -76,139 +115,39 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                        const SizedBox(height: 40,),
                        Text("Choose Membership plan",style: GoogleFonts.robotoSlab(color: Colors.yellow.shade200,fontSize: 20.0,fontWeight: FontWeight.w600),),
                        const SizedBox(height: 30,),
-                       Container(
-                             width: double.infinity,
-                             decoration: BoxDecoration(
-                               borderRadius: BorderRadius.circular(20.0),
-                               color: const Color.fromRGBO(255, 255, 255, 1)
-                             ),
-                             child: Padding(
-                               padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 15),
-                               child: Row(
-                                 children: [
-                                   Image.asset("assets/images/parpelstar.png",height: 20,width: 20,),
-                                   const SizedBox(width: 10,),
-                                   Text("SELECT",style: GoogleFonts.interTight(color: Colors.black,fontSize: 20.0,fontWeight: FontWeight.w600)),
-                                   const SizedBox(width: 70,),
-                               
-                                   Column(
-                                     children: [
-                                       Row(
-                                         children: [
-                                           Text("1000",style: GoogleFonts.interTight(color: Colors.yellow.shade700,fontSize: 24.0,),),
-                                           const SizedBox(width: 5,),
-                                   Text("5000",style: GoogleFonts.interTight(color: Colors.yellow.shade700,fontSize: 24.0),)
-                                         ],
-                                       ),
-                                       Text("1 Year validity",style: GoogleFonts.rubik(color: Colors.black,fontWeight: FontWeight.w400),)
-                                     ],
-                                   ),
-                           
-                                 ],
-                               ),
-                             ),
-                           ),
-                           const SizedBox(height: 20,),
-                           Container(
-                             height: 80,
-                             width: double.infinity,
-                             decoration: BoxDecoration(
-                               borderRadius: BorderRadius.circular(20.0),
-                               color: const Color.fromRGBO(255, 255, 255, 1)
-                             ),
-                             child: Padding(
-                               padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 10),
-                               child: Row(
-                                 children: [
-                                   Image.asset("assets/images/bluestar.png",height: 20,width: 20,),
-                                   const SizedBox(width: 10,),
-                                   Text("SELECT MINI",style: GoogleFonts.interTight(color: Colors.black,fontSize: 20.0,fontWeight: FontWeight.w600)),
-                                   const SizedBox(width: 30,),
-                               
-                                   Column(
-                                     children: [
-                                       Row(
-                                         children: [
-                                           Text("1000",style: GoogleFonts.interTight(color: Colors.yellow.shade600,fontSize: 24.0,),),
-                                          const  SizedBox(width: 5,),
-                                   Text("5000",style: GoogleFonts.interTight(color: Colors.yellow.shade600,fontSize: 24.0),)
-                                         ],
-                                       ),
-                                       Text("6 Month validity",style: GoogleFonts.rubik(color: Colors.black,fontWeight: FontWeight.w500),)
-                                     ],
-                                   ),
-                           
-                                 ],
-                               ),
-                             ),
-                           ),
-                           const SizedBox(height: 20,),
-                            Container(
-                             height: 80,
-                             width: double.infinity,
-                             decoration: BoxDecoration(
-                               borderRadius: BorderRadius.circular(20.0),
-                               color:const  Color.fromRGBO(255, 255, 255, 1)
-                             ),
-                             child: Padding(
-                               padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 10),
-                               child: Row(
-                                 children: [
-                                   Image.asset("assets/images/parpelstar.png",height: 20,width: 20,),
-                                   const SizedBox(width: 10,),
-                                   Text("PLATINUM",style: GoogleFonts.interTight(color: Colors.black,fontSize: 20.0,fontWeight: FontWeight.w600)),
-                                   const SizedBox(width: 40,),
-                               
-                                   Column(
-                                     children: [
-                                       Row(
-                                         children: [
-                                           Text("999",style: GoogleFonts.interTight(color: Colors.yellow.shade600,fontSize: 24.0,),),
-                                           SizedBox(width: 5,),
-                                   Text("399",style: GoogleFonts.interTight(color: Colors.yellow.shade600,fontSize: 24.0),)
-                                         ],
-                                       ),
-                                       Text("12 Month validity",style: GoogleFonts.rubik(color: Colors.black,fontWeight: FontWeight.w500),)
-                                     ],
-                                   ),
-                           
-                                 ],
-                               ),
-                             ),
-                           ),
-                          SizedBox(height: 20,),
-                          Container(
-                           width: double.infinity,
-                           decoration: BoxDecoration(
-                             borderRadius: BorderRadius.circular(20.0),
-                             color: Color.fromRGBO(255, 255, 255, 1)
-                           ),
-                           child: Padding(
-                             padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 10),
-                             child: Row(
-                               children: [
-                                 Image.asset("assets/images/silverstar.png",height: 20,width: 20,),
-                                 SizedBox(width: 10,),
-                                 Text("SILVER",style: GoogleFonts.interTight(color: Colors.black,fontSize: 20.0,fontWeight: FontWeight.w600)),
-                                 SizedBox(width: 80,),
-                               
-                                 Column(
-                                   children: [
-                                     Row(
-                                       children: [
-                                         Text("99",style: GoogleFonts.interTight(color: Colors.yellow.shade600,fontSize: 24.0,),),
-                                         SizedBox(width: 5,),
-                                               
-                                       ],
-                                     ),
-                                     Text("1 Month validity",style: GoogleFonts.rubik(color: Colors.black,fontWeight: FontWeight.w500),)
-                                   ],
-                                 ),
-                           
-                               ],
-                             ),
-                           ),
-                                               ), 
+                       SizedBox(
+                        height: size.height,
+                        child: ListView.builder(
+                          itemCount: DataList.length,
+                          itemBuilder: (context, index) {
+                            return GestureDetector(
+                              onTap: (){
+                                setState(() {
+                                   selectedIndex=index;
+                                   print(selectedIndex);
+                                   print(DataList[index]['items'].map((e)=> e).toList());
+                                });
+                              },
+                              child: Container(
+                                 height:  selectedIndex == index ? null : size.height / DataList.length,
+                                 width: size.width,
+                                 padding: const EdgeInsets.fromLTRB(32.0, 16.0, 0.0, 16.0),
+                                // alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  border: Border.all(width: 8.0, color: Colors.grey),
+                                ),
+                                child: Column(
+                                  children: [
+                                    Text("Ankita"),
+                                  ]),
+                              ),
+                              
+                            );
+                          },
+                        ),
+                       )
+                      
                           // SizedBox(height: 20,),
                       //  Container(
                       //  height: 50,
@@ -225,7 +164,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                  ),
               
                 Container(
-                 height: MediaQuery.of(context).size.height*0.7,
+                 height: MediaQuery.of(context).size.height*0.99,
                  width: double.infinity,
                   decoration: new BoxDecoration(
                      color: Colors.black,
@@ -236,81 +175,83 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                    ),
                  child: Padding(
                    padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 20.0),
-                   child: Column(children: [
-                     SizedBox(height: 30,),
-                     
-          Container(
-            height: 60,
-            width:350,
-            decoration: BoxDecoration(
-              color: Colors.grey.shade900,
-              borderRadius: BorderRadius.circular(40)
-            ),
-            child: TabBar(
-              indicator: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20.0),
-                  color: Colors.grey.shade500
-              ),
-              controller: _tabController,
-              tabs: [
-                  Tab(
-                    child: Text("Offer & Deals",style:GoogleFonts.robotoSlab(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18.0)),
-                  ),
-                  Tab(
-                    child: Text("Events",style:GoogleFonts.robotoSlab(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18.0),),
-                  ),
-              
-              ],
-            ),
-          ),
-          SizedBox(height: 20,),
-           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-             children: [
-               Container(
-                height: 50,
-                width: 280,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.white.withOpacity(0.3)),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-          child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(children: [
-                  Icon(Icons.search,color: Colors.white,),
-                  const SizedBox(width: 5,),
-                  Text("Search Offer",style: GoogleFonts.interTight(color: Colors.white,fontSize: 15.0))
-                ]),
-          ),
-          ),
-             
-            Container(
-              height:50,
-              width: 50,
-              decoration: BoxDecoration(
-                color: Colors.grey,
-                border: Border.all(color: Colors.white),
-                borderRadius: BorderRadius.circular(10.0),
-                image: DecorationImage(
-                
-                  image: AssetImage("assets/images/filter.png")
-                )
-              ),
-             )
-             ],
-           ),
-          SizedBox(height: 20,),
-          Expanded(
-            
-            child: TabBarView(
-              controller: _tabController,
-                children: [
-                    const OffeDeal(),
-                    const EventScreen(),
-                ]
-            ),
-          ),
-                   ]),
+                   child: Expanded(
+                     child: Column(children: [
+                       SizedBox(height: 30,),
+                       
+                             Container(
+                               height: 60,
+                               width:350,
+                               decoration: BoxDecoration(
+                                 color: Colors.grey.shade900,
+                                 borderRadius: BorderRadius.circular(40)
+                               ),
+                               child: TabBar(
+                                 indicator: BoxDecoration(
+                                     borderRadius: BorderRadius.circular(20.0),
+                                     color: Colors.grey.shade500
+                                 ),
+                                 controller: _tabController,
+                                 tabs: [
+                                     Tab(
+                      child: Text("Offer & Deals",style:GoogleFonts.robotoSlab(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18.0)),
+                                     ),
+                                     Tab(
+                      child: Text("Events",style:GoogleFonts.robotoSlab(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18.0),),
+                                     ),
+                                 
+                                 ],
+                               ),
+                             ),
+                             SizedBox(height: 20,),
+                              Row(
+                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                   height: 50,
+                                   width: 280,
+                                   decoration: BoxDecoration(
+                                     border: Border.all(color: Colors.white.withOpacity(0.3)),
+                                     borderRadius: BorderRadius.circular(10.0),
+                                   ),
+                             child: Padding(
+                                   padding: const EdgeInsets.all(8.0),
+                                   child: Row(children: [
+                                     Icon(Icons.search,color: Colors.white,),
+                                     const SizedBox(width: 5,),
+                                     Text("Search Offer",style: GoogleFonts.interTight(color: Colors.white,fontSize: 15.0))
+                                   ]),
+                             ),
+                             ),
+                                
+                               Container(
+                                 height:50,
+                                 width: 50,
+                                 decoration: BoxDecoration(
+                                   color: Colors.grey,
+                                   border: Border.all(color: Colors.white),
+                                   borderRadius: BorderRadius.circular(10.0),
+                                   image: DecorationImage(
+                                   
+                                     image: AssetImage("assets/images/filter.png")
+                                   )
+                                 ),
+                                )
+                                ],
+                              ),
+                             SizedBox(height: 20,),
+                             Expanded(
+                               
+                               child: TabBarView(
+                                 controller: _tabController,
+                                   children: [
+                      const OffeDeal(),
+                      const EventScreen(),
+                                   ]
+                               ),
+                             ),
+                     ]),
+                   ),
                  ),
                ),
                     

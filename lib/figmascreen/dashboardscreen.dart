@@ -20,9 +20,9 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   List Pages=[
     const HomeScreen(),
     const ExploreScreen(),
-    // const PlaywinScreen(),
+    const PlaywinScreen(),
      MyPage(),
-    const MoreScreen(),
+     const MoreScreen (),
   
   ];
   void _onTapped(index){
