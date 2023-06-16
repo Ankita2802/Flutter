@@ -13,51 +13,83 @@ class ExploreScreen extends StatefulWidget {
 class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProviderStateMixin {
    late TabController? _tabController;
    int selectedIndex = -1;
-   List DataList=[
+  List dataList = [
     {
-      "title":[
-         "assets/images/parpelstar.png",
-         "SELECT",
-         "10000",
-         "5000",
-         "1 Year validity"
+       
+       "leading":"assets/images/parpelstar.png",
+       "title": "select",
+       "price":"1000",
+       "subprice":"5000",
+       "validity":"1 Year validity",
+       'image':"assets/images/greentick.png",
 
-      ],
-      "items": [
-        'assets/images/greentick.png',
+       "items": [
         'Free access to all knocksense Events',
         '75 Unlocks',
         '25 Extra unlocks on singing up with a referral code',
         '10 Cash Vouchers of 1000 each,worth 10000',
         'Cash Vouchers are fully redeemable no min.bill value'
       ],
-      "title":[
-         "assets/images/bluestar.png",
-         "SELECT",
-         "10000",
-         "5000",
-         "1 Year validity"
-
-      ],
-      "items": [
-        'assets/images/greentick.png',
-        'Free access to all knocksense Events',
-        '75 Unlocks',
-        '25 Extra unlocks on singing up with a referral code',
-        '10 Cash Vouchers of 1000 each,worth 10000',
+    },
+    {
+       "leading":"assets/images/bluestar.png",
+       "title": "select mini",
+       'image':"assets/images/greentick.png",
+        "price":"2500",
+       "subprice":"1500",
+       "validity":"6 Month validity",
+       "items": [
+        '40 Unlocks',
+        '10 Extra unlocks on singing up with a referral code',
+        '3 Cash Vouchers of 1000 each,worth 3000',
         'Cash Vouchers are fully redeemable no min.bill value'
       ],
-    }
-   ];
+    },
+    {
+      "leading":"assets/images/bluestar.png",
+       "title": "platinum",
+       'image':"assets/images/greentick.png",
+        "price":"999",
+       "subprice":"399",
+       "validity":"12 Month validity",
+       "items": [
+        '40 Unlocks',
+        '10 Extra unlocks on singing up with a referral code',
+        '1 Cash Vouchers worth 1000'
+        'Earn upto 500 per referral'
+      ],
+    },
+    {
+       "leading":"assets/images/silverstar.png",
+       "title": "silver",
+       'image':"assets/images/greentick.png",
+        "price":"99",
+        "subprice":"",
+       "validity":"1 Month validity",
+       "items": [
+        '4 Unlocks',
+        '1 Extra unlocks on singing up with a referral code',
+        'Earn upto 300 per referral'
+      ],
+    },
+  ];
   @override
   void initState() {
     _tabController = new TabController(length: 3, vsync: this);
     super.initState();
+    _istapped=!_istapped;
   }
   void dispose(){
     _tabController?.dispose();
     super.dispose();
+    // _istapped=!_istapped;
   }
+    bool _istapped=true;
+//   void updateIsTapped(bool isTapped) {
+//   setState(() {
+//     _istapped = isTapped;
+//   });
+// }
   @override
   Widget build(BuildContext context) {
      final Size size = MediaQuery.of(context).size;
@@ -114,55 +146,122 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                ],),
                        const SizedBox(height: 40,),
                        Text("Choose Membership plan",style: GoogleFonts.robotoSlab(color: Colors.yellow.shade200,fontSize: 20.0,fontWeight: FontWeight.w600),),
-                       const SizedBox(height: 30,),
                        SizedBox(
-                        height: size.height,
-                        child: ListView.builder(
-                          itemCount: DataList.length,
-                          itemBuilder: (context, index) {
-                            return GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                   selectedIndex=index;
-                                   print(selectedIndex);
-                                   print(DataList[index]['items'].map((e)=> e).toList());
-                                });
-                              },
-                              child: Container(
-                                 height:  selectedIndex == index ? null : size.height / DataList.length,
-                                 width: size.width,
-                                 padding: const EdgeInsets.fromLTRB(32.0, 16.0, 0.0, 16.0),
-                                // alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(width: 8.0, color: Colors.grey),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Text("Ankita"),
-                                  ]),
-                              ),
-                              
-                            );
-                          },
+        child: ListView.builder(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          itemCount: dataList.length,
+          itemBuilder:(context,index)
+          =>GestureDetector(
+              onTap:(){
+                setState((){
+                  _istapped=!_istapped;
+                 selectedIndex = index;
+                 print( dataList[index]['items'].map((e)=> e).toList());
+                });
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                   height:  selectedIndex == index ? null 
+                    : size.height/3/ dataList.length,
+                  width: size.width,
+                  padding: const EdgeInsets.fromLTRB(12.0, 12.0, 0.0, 12.0),
+                  // alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    
+                    border:_istapped ? Border.all(width: 2.0,color: Colors.white): Border.all(width: 3.0,color: Colors.yellow),
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        children: [
+                           Image.asset(dataList[index]['leading'].toString(),height: 20,width: 20,),
+                            const SizedBox(width: 10,),
+                           Text(
+                          dataList[index]["title"].toUpperCase(),
+                          style:GoogleFonts.interTight(
+                            fontSize: 20.0,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w400,
+                            // letterSpacing: -2.0,
                         ),
-                       )
+                      ),
+                    SizedBox(width: 50,),
+                    Column(
+                      children: [
+                        Row(children: [
+                           Text( dataList[index]["price"].toString(),style: GoogleFonts.interTight(color: Colors.yellow.shade700,fontSize: 14.0,),),
+                                             const SizedBox(width: 5,),
+                                     Text(dataList[index]['subprice'].toString(),style: GoogleFonts.interTight(color: Colors.yellow.shade700,fontSize: 14.0),)
+                        ],),
+                          Text(dataList[index]['validity'].toString(),style: GoogleFonts.rubik(color: Colors.black,fontWeight: FontWeight.w400),)
+                      ],
+                    )
+
                       
-                          // SizedBox(height: 20,),
-                      //  Container(
-                      //  height: 50,
-                      //  width: double.infinity,
-                      //  decoration: BoxDecoration(
-                      //    borderRadius: BorderRadius.circular(10.0),
-                      //    color: Colors.yellow.shade400,
-                      //  ),
-                      //  child: Center(child: Text("View Details",style: GoogleFonts.rubik(color: Colors.white,fontSize: 15),)),
-                      //  ),
+                        ],
+                      ),
+                      // Row(children: [
+                      //      Image.asset(dataList[index]['items'][0],height: 20,width: 20,),
+                      //      Text(dataList[index]['items'][1])
+                      // ],),
+                      //  Row(children: [
+                      //      Image.asset(dataList[index]['items'][0],height: 20,width: 20,),
+                      //      Text(dataList[index]['items'][2])
+                      // ],),
+                    
+                        ...dataList[index]['items'].map((e)=> 
+                        selectedIndex == index ?
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Image.asset(dataList[index]['image'].toString(),height: 20,width: 20,),
+                              SizedBox(width: 2,),
+                              Expanded(
+                                flex: 1,
+                                child: Text(
+                                e,
+                                style: GoogleFonts.rubik(
+                                  fontSize: 12.0,
+                                  color: Colors.green,
+                                  height: selectedIndex == index ? 1.5 : 0.0,
+                                  
+                                ) ,
+                                                      ),
+                              ),
+                            ],
+                          ) : Container(),).toList()
+                      
+                      
+                    ],
+                  ),
+                ),
+              ),
+            
+          ),
+          ),
+      ),
+                       
+                  
+                       Container(
+                       height: 50,
+                       width: double.infinity,
+                       decoration: BoxDecoration(
+                         borderRadius: BorderRadius.circular(10.0),
+                         color: Colors.yellow.shade400,
+                       ),
+                       child: Center(child: Text("View Details",style: GoogleFonts.rubik(color: Colors.white,fontSize: 15),)),
+                       ),
                        ]),
                      ),
                    ),
                  ),
-              
+                SizedBox(height: 10,),
                 Container(
                  height: MediaQuery.of(context).size.height*0.99,
                  width: double.infinity,
@@ -186,21 +285,24 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                  color: Colors.grey.shade900,
                                  borderRadius: BorderRadius.circular(40)
                                ),
-                               child: TabBar(
-                                 indicator: BoxDecoration(
-                                     borderRadius: BorderRadius.circular(20.0),
-                                     color: Colors.grey.shade500
-                                 ),
-                                 controller: _tabController,
-                                 tabs: [
-                                     Tab(
+                               child:  Padding(
+                                 padding: const EdgeInsets.all(8.0),
+                                 child: TabBar(
+                                   indicator: BoxDecoration(
+                                       borderRadius:_istapped ? BorderRadius.only(topLeft: Radius.circular(20.0),bottomLeft: Radius.circular(20.0)):BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0)),
+                                       color: Colors.grey.shade500
+                                   ),
+                                   controller: _tabController,
+                                   tabs: [
+                                       Tab(
                       child: Text("Offer & Deals",style:GoogleFonts.robotoSlab(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18.0)),
-                                     ),
-                                     Tab(
+                                       ),
+                                       Tab(
                       child: Text("Events",style:GoogleFonts.robotoSlab(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18.0),),
-                                     ),
-                                 
-                                 ],
+                                       ),
+                                   
+                                   ],
+                                 ),
                                ),
                              ),
                              SizedBox(height: 20,),
