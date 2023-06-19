@@ -78,6 +78,15 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
     _tabController = new TabController(length: 3, vsync: this);
     super.initState();
     _istapped=!_istapped;
+    
+    _tabController?.addListener(_handletabchange);
+  }
+  BorderRadiusGeometry _borderRadius = BorderRadius.only(topLeft: Radius.circular(20.0),bottomLeft: Radius.circular(20.0));
+
+  void _handletabchange(){
+     setState(() {
+       _borderRadius = _tabController?.index == 1? BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0)):BorderRadius.only(topLeft: Radius.circular(20.0),bottomLeft: Radius.circular(20.0));
+     });
   }
   void dispose(){
     _tabController?.dispose();
@@ -102,57 +111,56 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
               child: Column(
                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                 Container(
-                   height: height/1,
-                   width: width/1,
-                   child: Padding(
-                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                     child: SingleChildScrollView(
-                       child: Column(children: [
-                        const SizedBox(height: 20,),
-                               Container(
-                                 height:150,
-                                 width: 100,
-                                 decoration: const BoxDecoration(
-                              
-                                   image: DecorationImage(
+                 Padding(
+                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                   child: Column(children: [
+                    const SizedBox(height: 20,),
+                           Container(
+                            //  height:150,
+                            //  width: 100,
+                            padding: EdgeInsets.symmetric(horizontal: 50,vertical: 50),
+                             decoration: const BoxDecoration(
+                          
+                               image: DecorationImage(
                   
-                                     image:AssetImage("assets/images/knLogo.png")
-                                      ),
-                                 ),
-                               ),
-                       Row(
-                         children: [
-                             Icon(Icons.file_copy_rounded,color:Colors.white,size: 20.0,),
-                                  const SizedBox(width: 10), 
-                                   Text("Daily news digest at your preferred time",style: GoogleFonts.rubik(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w500),)
-                         ],
-                       ),
-                       const SizedBox(height: 10,),
-                       Row(
-                         children: [
-                             Icon(Icons.settings,color: Colors.white,),
-                                  const SizedBox(width: 10),
-                                 Text("Exclusive Deals and Offers",style: GoogleFonts.rubik(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w500),)
-                               
-                         ],
-                       ),
-                       const SizedBox(height: 10,),
-                        Row(
-                               children: [
-                                 Icon(Icons.add_box_sharp,color: Colors.white,),
-                                 const  SizedBox(width: 10),
-                                 Text("Zero convenience free on event booking",style: GoogleFonts.rubik(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w500),)
-                               ],),
-                       const SizedBox(height: 40,),
-                       Text("Choose Membership plan",style: GoogleFonts.robotoSlab(color: Colors.yellow.shade200,fontSize: 20.0,fontWeight: FontWeight.w600),),
-                       SizedBox(
-        child: ListView.builder(
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          itemCount: dataList.length,
-          itemBuilder:(context,index)
-          =>GestureDetector(
+                                 image:AssetImage("assets/images/knLogo.png")
+                                  ),
+                             ),
+                           ),
+                    const SizedBox(height: 20,),
+                   Row(
+                     children: [
+                         Icon(Icons.file_copy_rounded,color:Colors.white,size: 20.0,),
+                              const SizedBox(width: 10), 
+                               Text("Daily news digest at your preferred time",style: GoogleFonts.rubik(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w500),)
+                     ],
+                   ),
+                   const SizedBox(height: 10,),
+                   Row(
+                     children: [
+                         Icon(Icons.settings,color: Colors.white,),
+                              const SizedBox(width: 10),
+                             Text("Exclusive Deals and Offers",style: GoogleFonts.rubik(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w500),)
+                           
+                     ],
+                   ),
+                   const SizedBox(height: 10,),
+                    Row(
+                           children: [
+                             Icon(Icons.add_box_sharp,color: Colors.white,),
+                             const  SizedBox(width: 10),
+                             Text("Zero convenience free on event booking",style: GoogleFonts.rubik(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w500),)
+                           ],),
+                   const SizedBox(height: 40,),
+                   Text("Choose Membership plan",style: GoogleFonts.robotoSlab(color: Colors.yellow.shade200,fontSize: 20.0,fontWeight: FontWeight.w600),),
+                   SizedBox(
+                    child: ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    itemCount: dataList.length,
+                    itemBuilder:(context,index)
+                    =>GestureDetector(
               onTap:(){
                 setState((){
                   _istapped=!_istapped;
@@ -163,107 +171,146 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
-                   height:  selectedIndex == index ? null 
-                    : size.height/3/ dataList.length,
+                 height:  selectedIndex == index ? null 
+                  : size.height/3/ dataList.length,
                   width: size.width,
                   padding: const EdgeInsets.fromLTRB(12.0, 12.0, 0.0, 12.0),
                   // alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Colors.white,
-                    
-                    border:_istapped ? Border.all(width: 2.0,color: Colors.white): Border.all(width: 3.0,color: Colors.yellow),
-                    borderRadius: BorderRadius.circular(20.0),
+                  color: Colors.white,
+                  
+                  border:_istapped ? Border.all(width: 2.0,color: Colors.white): Border.all(width: 3.0,color: Colors.yellow),
+                  borderRadius: BorderRadius.circular(20.0),
                   ),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
                       Row(
+                        //  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                            Image.asset(dataList[index]['leading'].toString(),height: 20,width: 20,),
-                            const SizedBox(width: 10,),
-                           Text(
+                           SizedBox(width: 2,), 
+                            Text(
                           dataList[index]["title"].toUpperCase(),
                           style:GoogleFonts.interTight(
                             fontSize: 20.0,
                             color: Colors.black,
                             fontWeight: FontWeight.w400,
                             // letterSpacing: -2.0,
-                        ),
-                      ),
-                    SizedBox(width: 50,),
-                    Column(
-                      children: [
-                        Row(children: [
-                           Text( dataList[index]["price"].toString(),style: GoogleFonts.interTight(color: Colors.yellow.shade700,fontSize: 14.0,),),
-                                             const SizedBox(width: 5,),
-                                     Text(dataList[index]['subprice'].toString(),style: GoogleFonts.interTight(color: Colors.yellow.shade700,fontSize: 14.0),)
-                        ],),
-                          Text(dataList[index]['validity'].toString(),style: GoogleFonts.rubik(color: Colors.black,fontWeight: FontWeight.w400),)
-                      ],
-                    )
-
-                      
-                        ],
-                      ),
-                      // Row(children: [
-                      //      Image.asset(dataList[index]['items'][0],height: 20,width: 20,),
-                      //      Text(dataList[index]['items'][1])
-                      // ],),
-                      //  Row(children: [
-                      //      Image.asset(dataList[index]['items'][0],height: 20,width: 20,),
-                      //      Text(dataList[index]['items'][2])
-                      // ],),
-                    
-                        ...dataList[index]['items'].map((e)=> 
-                        selectedIndex == index ?
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                          )),
+                        ]),
+                          Column(
                             children: [
-                              Image.asset(dataList[index]['image'].toString(),height: 20,width: 20,),
-                              SizedBox(width: 2,),
-                              Expanded(
-                                flex: 1,
-                                child: Text(
-                                e,
-                                style: GoogleFonts.rubik(
-                                  fontSize: 12.0,
-                                  color: Colors.green,
-                                  height: selectedIndex == index ? 1.5 : 0.0,
-                                  
-                                ) ,
-                                                      ),
+                              Row(
+                                children: [
+                                  Text( dataList[index]["price"].toString(),style: GoogleFonts.interTight(color: Colors.yellow.shade700,fontSize: 14.0,),),
+                                            // const SizedBox(width: 5,),
+                                   Text(dataList[index]['subprice'].toString(),style: GoogleFonts.interTight(color: Colors.yellow.shade700,fontSize: 14.0),)
+                                ],
                               ),
+                              Text(dataList[index]['validity'].toString(),style: GoogleFonts.rubik(color: Colors.black,fontWeight: FontWeight.w400),)
                             ],
-                          ) : Container(),).toList()
-                      
-                      
-                    ],
+                          )
+             
+                      //   ],
+                      // )
+                    ],),
+                  //    Row(
+                  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //     children: [
+                  //       Row(
+                  //       // mainAxisAlignment: MainAxisAlignment.start,
+                  //       children: [
+                  //          Image.asset(dataList[index]['leading'].toString(),height: 20,width: 20,),
+                  //           const SizedBox(width: 10,),
+                  //          Text(
+                  //         dataList[index]["title"].toUpperCase(),
+                  //         style:GoogleFonts.interTight(
+                  //           fontSize: 20.0,
+                  //           color: Colors.black,
+                  //           fontWeight: FontWeight.w400,
+                  //           // letterSpacing: -2.0,
+                  //       ),
+                  //       ),
+                  //       // const SizedBox(width: 50,),
+                  // Column(
+                  //       // crossAxisAlignment: CrossAxisAlignment.center,
+                  //       children: [
+                  //       Row(
+                  //         // mainAxisAlignment: MainAxisAlignment.start,
+                  //         children: [
+                  //          Text( dataList[index]["price"].toString(),style: GoogleFonts.interTight(color: Colors.yellow.shade700,fontSize: 14.0,),),
+                  //                            const SizedBox(width: 5,),
+                  //                    Text(dataList[index]['subprice'].toString(),style: GoogleFonts.interTight(color: Colors.yellow.shade700,fontSize: 14.0),)
+                  //       ],),
+                  //         Text(dataList[index]['validity'].toString(),style: GoogleFonts.rubik(color: Colors.black,fontWeight: FontWeight.w400),)
+                  //       ],
+                  // )
+            
+                        
+                  //       ],
+                  //       ),
+                  //     ],
+                  //   ),
+                    // Row(children: [
+                    //      Image.asset(dataList[index]['items'][0],height: 20,width: 20,),
+                    //      Text(dataList[index]['items'][1])
+                    // ],),
+                    //  Row(children: [
+                    //      Image.asset(dataList[index]['items'][0],height: 20,width: 20,),
+                    //      Text(dataList[index]['items'][2])
+                    // ],),
+                  
+                    ...dataList[index]['items'].map((e)=> 
+                    selectedIndex == index ?
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset(dataList[index]['image'].toString(),height: 20,width: 20,),
+                          const SizedBox(width: 2,),
+                          Expanded(
+                            flex: 1,
+                            child: Text(
+                            e,
+                            style: GoogleFonts.rubik(
+                              fontSize: 12.0,
+                              color: Colors.green,
+                              height: selectedIndex == index ? 1.5 : 0.0,
+                              
+                            ) ,
+                                                  ),
+                          ),
+                        ],
+                      ) : Container(),).toList()
+                    
+                    
+                  ],
                   ),
                 ),
               ),
-            
-          ),
-          ),
-      ),
-                       
+              
+                    ),
+                    ),
+                  ),
+                   
                   
-                       Container(
-                       height: 50,
-                       width: double.infinity,
-                       decoration: BoxDecoration(
-                         borderRadius: BorderRadius.circular(10.0),
-                         color: Colors.yellow.shade400,
-                       ),
-                       child: Center(child: Text("View Details",style: GoogleFonts.rubik(color: Colors.white,fontSize: 15),)),
-                       ),
-                       ]),
-                     ),
+                   Container(
+                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                   width: double.infinity,
+                   decoration: BoxDecoration(
+                     borderRadius: BorderRadius.circular(10.0),
+                     color: Colors.yellow.shade400,
                    ),
+                   child: Center(child: Text("View Details",style: GoogleFonts.rubik(color: Colors.white,fontSize: 15),)),
+                   ),
+                   ]),
                  ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 Container(
-                 height: MediaQuery.of(context).size.height*0.99,
+                height: MediaQuery.of(context).size.height*0.99,
                  width: double.infinity,
                   decoration: new BoxDecoration(
                      color: Colors.black,
@@ -289,7 +336,8 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                  padding: const EdgeInsets.all(8.0),
                                  child: TabBar(
                                    indicator: BoxDecoration(
-                                       borderRadius:_istapped ? BorderRadius.only(topLeft: Radius.circular(20.0),bottomLeft: Radius.circular(20.0)):BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0)),
+                                    borderRadius: _borderRadius,
+                                       //borderRadius:_istapped ? BorderRadius.only(topLeft: Radius.circular(20.0),bottomLeft: Radius.circular(20.0)):BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0)),
                                        color: Colors.grey.shade500
                                    ),
                                    controller: _tabController,
@@ -310,27 +358,27 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
-                                   height: 50,
-                                   width: 280,
+                                  // height: 50,
+                                  width: 280,
+                                  padding: EdgeInsets.symmetric(horizontal: 10,vertical: 15),
                                    decoration: BoxDecoration(
                                      border: Border.all(color: Colors.white.withOpacity(0.3)),
                                      borderRadius: BorderRadius.circular(10.0),
                                    ),
-                             child: Padding(
-                                   padding: const EdgeInsets.all(8.0),
-                                   child: Row(children: [
-                                     Icon(Icons.search,color: Colors.white,),
-                                     const SizedBox(width: 5,),
-                                     Text("Search Offer",style: GoogleFonts.interTight(color: Colors.white,fontSize: 15.0))
-                                   ]),
-                             ),
+                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                               Icon(Icons.search,color: Colors.white,),
+                               const SizedBox(width: 5,),
+                               Text("Search Offer",style: GoogleFonts.interTight(color: Colors.white,fontSize: 15.0))
+                             ]),
                              ),
                                 
                                Container(
-                                 height:50,
-                                 width: 50,
+                                 padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
                                  decoration: BoxDecoration(
-                                   color: Colors.grey,
+                                  color: Colors.white,
                                    border: Border.all(color: Colors.white),
                                    borderRadius: BorderRadius.circular(10.0),
                                    image: DecorationImage(

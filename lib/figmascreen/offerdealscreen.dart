@@ -67,9 +67,7 @@ class _OffeDealState extends State<OffeDeal> {
                       image: DecorationImage(image: AssetImage(imageList[index]),fit: BoxFit.cover)
                     ),
                        ),
-                       Expanded(
-                        flex: 1,
-                        child: Text(textfield[index],style: GoogleFonts.rubik(fontSize: 11.0,color: Colors.white),))
+                       Text(textfield[index],style: GoogleFonts.rubik(fontSize: 11.0,color: Colors.white),)
                   ],
                  );
                },
@@ -128,7 +126,7 @@ class _OffeDealState extends State<OffeDeal> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(isGridViewOpen? 'View less' : 'View more',style: GoogleFonts.rubik(color: Colors.white),),
-                     Icon(Icons.keyboard_control_key,color: Colors.white,size: 20.0,),
+                     Icon( isGridViewOpen ?Icons.keyboard_control_key:Icons.keyboard_arrow_down_outlined,color: Colors.white,),
                     ],
                   ),
                 ),

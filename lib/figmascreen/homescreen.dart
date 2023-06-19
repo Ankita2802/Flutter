@@ -104,16 +104,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Row(
                           children: [
                             Image.asset("assets/images/bluestar.png",height: 30,width: 30,),
-                            SizedBox(width: 10,),
+                            const SizedBox(width: 10,),
                             Text("SELECT MINI",style: GoogleFonts.interTight(color: Colors.black,fontSize: 18.0,fontWeight: FontWeight.w500)),
-                            SizedBox(width: 30,),
+                            const SizedBox(width: 30,),
                         
                             Column(
                               children: [
                                 Row(
                                   children: [
                                     Text("1000",style: GoogleFonts.interTight(color: Color.fromRGBO(78, 72, 15, 1),fontSize: 24.0,),),
-                                    SizedBox(width: 5,),
+                                    const SizedBox(width: 5,),
                             Text("5000",style: GoogleFonts.interTight(color: Color.fromARGB(255, 78, 72, 15),fontSize: 24.0),)
                                   ],
                                 ),
@@ -125,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 10,),
+                    const SizedBox(height: 10,),
                      Container(
                       height: 80,
                       width: double.infinity,
@@ -138,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Row(
                           children: [
                             Image.asset("assets/images/parpelstar.png",height: 30,width: 30,),
-                            SizedBox(width: 10,),
+                            const SizedBox(width: 10,),
                             Text("PLATINUM",style: GoogleFonts.interTight(color: Colors.black,fontSize: 18.0,fontWeight: FontWeight.w500)),
                             const SizedBox(width: 40,),
                         
@@ -181,7 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Row(
                                 children: [
                                   Text("99",style: GoogleFonts.interTight(color: Color.fromRGBO(78, 72, 15, 1),fontSize: 24.0,),),
-                                  SizedBox(width: 5,),
+                                  const SizedBox(width: 5,),
                   
                                 ],
                               ),
