@@ -9,7 +9,7 @@ class PlaywinScreen extends StatefulWidget {
 class _PlaywinScreenState extends State<PlaywinScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.white,
     );
   }

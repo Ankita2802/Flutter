@@ -1,22 +1,21 @@
 import 'package:figma/provider/provider_con/exaone_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-class Exampleone_Screen extends StatefulWidget {
-  const Exampleone_Screen({super.key});
+class ExampleoneScreen extends StatefulWidget {
+  const ExampleoneScreen({super.key});
 
   @override
-  State<Exampleone_Screen> createState() => _Exampleone_ScreenState();
+  State<ExampleoneScreen> createState() => _ExampleoneScreenState();
 }
 
-class _Exampleone_ScreenState extends State<Exampleone_Screen> {
+class _ExampleoneScreenState extends State<ExampleoneScreen> {
   // double value=1.0;
   @override
   Widget build(BuildContext context) {
-     final provider=Provider.of<ExampleOneProvider>(context,listen:false);
-    print("rebuild_______________");
+    debugPrint("rebuild_______________");
     return Scaffold(
       appBar: AppBar(
-        title: Text("Saubscribe"),
+        title: const Text("Saubscribe"),
         centerTitle: true,
         backgroundColor: Colors.cyan,
       ),

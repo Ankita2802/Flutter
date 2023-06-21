@@ -8,8 +8,7 @@ class OffeDeal extends StatefulWidget {
 }
 
 class _OffeDealState extends State<OffeDeal> {
-  @override
-   List<String> imageList=[
+   final List<String> imageList=[
      "assets/images/fitness.png",
      "assets/images/fitness.png",
      "assets/images/fitness.png",
@@ -19,7 +18,7 @@ class _OffeDealState extends State<OffeDeal> {
      "assets/images/fitness.png",
      "assets/images/fitness.png"
     ];
-  List textfield=[
+  final List textfield=[
     "Fashin & Lifestyle",
     "Food",
     "Drinks",
@@ -37,6 +36,7 @@ class _OffeDealState extends State<OffeDeal> {
   //     _isGridViewVisible = !_isGridViewVisible;
   //   });
   // }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
@@ -44,6 +44,7 @@ class _OffeDealState extends State<OffeDeal> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
            Text("Pick what makes you happy",style: GoogleFonts.inter(color: Colors.yellow.shade500,fontSize: 18.0,fontWeight: FontWeight.w500)),
+          // ignore: sized_box_for_whitespace
           Container(
             // padding: EdgeInsets.all(8.0),
             height: 215,
@@ -51,7 +52,7 @@ class _OffeDealState extends State<OffeDeal> {
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               itemCount: imageList.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(  
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(  
                     crossAxisCount: 4,  
                     mainAxisSpacing: 10.0,
                     // crossAxisSpacing: 5.0,
@@ -81,7 +82,7 @@ class _OffeDealState extends State<OffeDeal> {
               shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
               itemCount: imageList.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(  
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(  
                     crossAxisCount: 4,  
                     mainAxisSpacing: 10.0,
                     // crossAxisSpacing: 1.0,

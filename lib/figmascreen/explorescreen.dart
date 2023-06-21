@@ -75,19 +75,20 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
   ];
   @override
   void initState() {
-    _tabController = new TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
     super.initState();
     _istapped=!_istapped;
     
     _tabController?.addListener(_handletabchange);
   }
-  BorderRadiusGeometry _borderRadius = BorderRadius.only(topLeft: Radius.circular(20.0),bottomLeft: Radius.circular(20.0));
+  BorderRadiusGeometry _borderRadius = const BorderRadius.only(topLeft: Radius.circular(20.0),bottomLeft: Radius.circular(20.0));
 
   void _handletabchange(){
      setState(() {
-       _borderRadius = _tabController?.index == 1? BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0)):BorderRadius.only(topLeft: Radius.circular(20.0),bottomLeft: Radius.circular(20.0));
+       _borderRadius = _tabController?.index == 1? const BorderRadius.only(topRight: Radius.circular(20.0),bottomRight: Radius.circular(20.0)):const BorderRadius.only(topLeft: Radius.circular(20.0),bottomLeft: Radius.circular(20.0));
      });
   }
+  @override
   void dispose(){
     _tabController?.dispose();
     super.dispose();
@@ -102,9 +103,9 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
   @override
   Widget build(BuildContext context) {
      final Size size = MediaQuery.of(context).size;
-    double height,width;
-    height=MediaQuery.of(context).size.height;
-    width=MediaQuery.of(context).size.width;
+    // // double height,width;
+    // height=MediaQuery.of(context).size.height;
+    // width=MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: const Color(0xFF044652),
             body: SingleChildScrollView(
@@ -118,7 +119,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                            Container(
                             //  height:150,
                             //  width: 100,
-                            padding: EdgeInsets.symmetric(horizontal: 50,vertical: 50),
+                            padding: const EdgeInsets.symmetric(horizontal: 50,vertical: 50),
                              decoration: const BoxDecoration(
                           
                                image: DecorationImage(
@@ -130,7 +131,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                     const SizedBox(height: 20,),
                    Row(
                      children: [
-                         Icon(Icons.file_copy_rounded,color:Colors.white,size: 20.0,),
+                         const Icon(Icons.file_copy_rounded,color:Colors.white,size: 20.0,),
                               const SizedBox(width: 10), 
                                Text("Daily news digest at your preferred time",style: GoogleFonts.rubik(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w500),)
                      ],
@@ -138,7 +139,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                    const SizedBox(height: 10,),
                    Row(
                      children: [
-                         Icon(Icons.settings,color: Colors.white,),
+                         const Icon(Icons.settings,color: Colors.white,),
                               const SizedBox(width: 10),
                              Text("Exclusive Deals and Offers",style: GoogleFonts.rubik(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w500),)
                            
@@ -147,7 +148,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                    const SizedBox(height: 10,),
                     Row(
                            children: [
-                             Icon(Icons.add_box_sharp,color: Colors.white,),
+                             const Icon(Icons.add_box_sharp,color: Colors.white,),
                              const  SizedBox(width: 10),
                              Text("Zero convenience free on event booking",style: GoogleFonts.rubik(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w500),)
                            ],),
@@ -155,7 +156,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                    Text("Choose Membership plan",style: GoogleFonts.robotoSlab(color: Colors.yellow.shade200,fontSize: 20.0,fontWeight: FontWeight.w600),),
                    SizedBox(
                     child: ListView.builder(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
                     itemCount: dataList.length,
@@ -165,7 +166,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                 setState((){
                   _istapped=!_istapped;
                  selectedIndex = index;
-                 print( dataList[index]['items'].map((e)=> e).toList());
+                 debugPrint( dataList[index]['items'].map((e)=> e).toList());
                 });
               },
               child: Padding(
@@ -192,7 +193,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                         //  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                            Image.asset(dataList[index]['leading'].toString(),height: 20,width: 20,),
-                           SizedBox(width: 2,), 
+                           const SizedBox(width: 2,), 
                             Text(
                           dataList[index]["title"].toUpperCase(),
                           style:GoogleFonts.interTight(
@@ -298,7 +299,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                    
                   
                    Container(
-                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                    width: double.infinity,
                    decoration: BoxDecoration(
                      borderRadius: BorderRadius.circular(10.0),
@@ -312,18 +313,18 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                 Container(
                 height: MediaQuery.of(context).size.height*0.99,
                  width: double.infinity,
-                  decoration: new BoxDecoration(
+                  decoration: const BoxDecoration(
                      color: Colors.black,
-                     borderRadius: new BorderRadius.only(
-                       topLeft: const Radius.circular(40.0),
-                       topRight: const Radius.circular(40.0),
+                     borderRadius: BorderRadius.only(
+                       topLeft: Radius.circular(40.0),
+                       topRight: Radius.circular(40.0),
                      )
                    ),
                  child: Padding(
                    padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 20.0),
                    child: Expanded(
                      child: Column(children: [
-                       SizedBox(height: 30,),
+                       const SizedBox(height: 30,),
                        
                              Container(
                                height: 60,
@@ -353,14 +354,14 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                  ),
                                ),
                              ),
-                             SizedBox(height: 20,),
+                             const SizedBox(height: 20,),
                               Row(
                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
                                   // height: 50,
                                   width: 280,
-                                  padding: EdgeInsets.symmetric(horizontal: 10,vertical: 15),
+                                  padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 15),
                                    decoration: BoxDecoration(
                                      border: Border.all(color: Colors.white.withOpacity(0.3)),
                                      borderRadius: BorderRadius.circular(10.0),
@@ -369,19 +370,19 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                               Icon(Icons.search,color: Colors.white,),
+                               const Icon(Icons.search,color: Colors.white,),
                                const SizedBox(width: 5,),
                                Text("Search Offer",style: GoogleFonts.interTight(color: Colors.white,fontSize: 15.0))
                              ]),
                              ),
                                 
                                Container(
-                                 padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+                                 padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
                                  decoration: BoxDecoration(
                                   color: Colors.white,
                                    border: Border.all(color: Colors.white),
                                    borderRadius: BorderRadius.circular(10.0),
-                                   image: DecorationImage(
+                                   image: const DecorationImage(
                                    
                                      image: AssetImage("assets/images/filter.png")
                                    )
@@ -389,14 +390,14 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
                                 )
                                 ],
                               ),
-                             SizedBox(height: 20,),
+                             const SizedBox(height: 20,),
                              Expanded(
                                
                                child: TabBarView(
                                  controller: _tabController,
-                                   children: [
-                      const OffeDeal(),
-                      const EventScreen(),
+                                   children: const [
+                      OffeDeal(),
+                      EventScreen(),
                                    ]
                                ),
                              ),

@@ -13,20 +13,20 @@ class _MyFavouriteScreenState extends State<MyFavouriteScreen> {
  @override
   Widget build(BuildContext context) {
    final favouriteprovider=Provider.of<FavoriteListProvider>(context);
-    print("rebuild");
+    debugPrint("rebuild");
     return Scaffold(
       appBar: AppBar(
-        title: Text(" My Favourite App"),
+        title: const Text(" My Favourite App"),
         centerTitle: true,
         backgroundColor: Colors.amber,
         actions: [
           InkWell(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>MyFavouriteScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>const MyFavouriteScreen()));
             },
-            child: Icon(Icons.favorite),
+            child: const Icon(Icons.favorite),
             ),
-            SizedBox(width: 20,),
+            const SizedBox(width: 20,),
         ],
       ),
       body: Column(children: [
@@ -49,7 +49,7 @@ class _MyFavouriteScreenState extends State<MyFavouriteScreen> {
                 value.addSelectedItem(index);
               }
             },
-               title: Text('Item'+index.toString()),
+               title: Text('Item$index'),
                trailing:Icon(value.selecteditem.contains(index)?Icons.favorite:Icons.favorite_outline),
           );
           },);

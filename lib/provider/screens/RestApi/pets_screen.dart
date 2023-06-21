@@ -1,8 +1,8 @@
 import 'package:figma/provider/screens/RestApi/get_provider.dart';
-import 'package:figma/provider/screens/RestApi/models/PetsModel.dart';
+import 'package:figma/provider/screens/RestApi/models/petsModel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+// import 'package:flutter_spinkit/flutter_spinkit.dart';
 class PetsScreen extends StatefulWidget {
   const PetsScreen({super.key});
 
@@ -12,11 +12,18 @@ class PetsScreen extends StatefulWidget {
 
 class _PetsScreenState extends State<PetsScreen> {
   @override
+  void initState() {
+    final provider=Provider.of<Getproductprovider>(context,listen: false);
+    provider.GetDatafromApi();
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
-    final provider=Provider.of<Getproductprovider>(context);
+    final provider=Provider.of<Getproductprovider>(context,listen: false);
+    // provider.GetDatafromApi();
     return Scaffold(
       appBar: AppBar(
-        title: Text("get Pets Data"),
+        title: const Text("get Pets Data"),
         centerTitle: true,
         backgroundColor: Colors.red,
       ),
@@ -29,15 +36,15 @@ class _PetsScreenState extends State<PetsScreen> {
   }
   
   Widget getLoadingUi() {
-    return Center(
+    return const Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: const [
+        children:[
         CircularProgressIndicator(
           color: Colors.blue,
           
         ),
-     const Text("Loading",style: TextStyle(color: Colors.blue,fontSize: 30.0),)
+      Text("Loading",style: TextStyle(color: Colors.blue,fontSize: 30.0),)
       ]),
     );
   
@@ -45,7 +52,7 @@ class _PetsScreenState extends State<PetsScreen> {
   
   Widget getErrorUi(String error) {
     return Center(
-      child: Text(error,style: TextStyle(color: Colors.red,fontSize: 24.0),),
+      child: Text(error,style: const TextStyle(color: Colors.red,fontSize: 24.0),),
     );
   }
 
@@ -54,8 +61,14 @@ class _PetsScreenState extends State<PetsScreen> {
       itemCount: pets.data.length,
       itemBuilder: (context, index) {
         return ListTile(
+          leading: CircleAvatar(
+            radius: 22,
+            backgroundImage: NetworkImage(pets.data[index].petImage),
+            backgroundColor: Colors.white,
+          ),
           title: Text(pets.data[index].userName),
           subtitle: Text(pets.data[index].petName),
+          trailing: pets.data[index].isFriendly?const SizedBox():const Icon(Icons.pets,color: Colors.red,),
         );
       },
     );

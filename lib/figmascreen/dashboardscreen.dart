@@ -21,7 +21,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     const HomeScreen(),
     const ExploreScreen(),
     const PlaywinScreen(),
-     MyPage(),
+     const MyPage(),
      const MoreScreen (),
   
   ];
@@ -40,7 +40,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
         selectedItemColor: Colors.cyan,
         unselectedItemColor: Colors.white,
         items:<BottomNavigationBarItem>[
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
           // icon: Image(image: AssetImage("assets/Vector (3).png"),height: 20,width: 20,fit: BoxFit.cover,),
           icon: Icon(Icons.home),
             label: "Home",

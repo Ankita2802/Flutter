@@ -1,4 +1,4 @@
-import 'dart:ffi';
+
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,14 +13,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff044652),
+      backgroundColor: const Color(0xff044652),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
               height: MediaQuery.of(context).size.height*0.9,
               width: double.infinity,
-              color: Color(0xff044652),
+              color: const Color(0xff044652),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
                 child: SingleChildScrollView(
@@ -30,57 +30,57 @@ class _HomeScreenState extends State<HomeScreen> {
                       Container(
                         height: 150,
                         width: 150,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           image: DecorationImage(
                             image:AssetImage("assets/images/knLogo.png")
                              ),
                         ),
                       ),
-                      SizedBox(height: 20,),
+                      const SizedBox(height: 20,),
                       Row(
                         children: [
-                          Icon(Icons.file_copy_sharp,color: Colors.white,),
-                         SizedBox(width: 10), 
+                          const Icon(Icons.file_copy_sharp,color: Colors.white,),
+                         const SizedBox(width: 10), 
                           Text("Daily news digest at your preferred time",style: GoogleFonts.rubik(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w400),)
                         ],),
                           Row(
                         children: [
-                          Icon(Icons.circle_sharp,color: Colors.white,),
-                           SizedBox(width: 10),
+                          const Icon(Icons.circle_sharp,color: Colors.white,),
+                           const SizedBox(width: 10),
                           Text("Exclusive Deals and Offers",style: GoogleFonts.rubik(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w400),)
                         ],),
                           Row(
                         children: [
-                          Icon(Icons.file_copy_sharp,color: Colors.white,),
-                           SizedBox(width: 10),
+                          const Icon(Icons.file_copy_sharp,color: Colors.white,),
+                           const SizedBox(width: 10),
                           Text("Zero convenience free on event booking",style: GoogleFonts.rubik(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w400),)
                         ],),
-                        SizedBox(height: 30,),
+                        const SizedBox(height: 30,),
                     Text("Choose Membership plan",style: GoogleFonts.mukta(color: Colors.yellow.shade200,fontSize: 20.0,fontWeight: FontWeight.w600),),
-                    SizedBox(height: 10,),
+                    const SizedBox(height: 10,),
                     Container(
                       height: 80,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.0),
-                        color: Color.fromRGBO(255, 255, 255, 1)
+                        color: const Color.fromRGBO(255, 255, 255, 1)
                       ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 10),
                         child: Row(
                           children: [
                             Image.asset("assets/images/parpelstar.png",height: 30,width: 30,),
-                            SizedBox(width: 10,),
+                            const SizedBox(width: 10,),
                             Text("SELECT",style: GoogleFonts.interTight(color: Colors.black,fontSize: 20.0,fontWeight: FontWeight.w500)),
-                            SizedBox(width: 70,),
+                            const SizedBox(width: 70,),
                         
                             Column(
                               children: [
                                 Row(
                                   children: [
-                                    Text("1000",style: GoogleFonts.interTight(color: Color.fromRGBO(78, 72, 15, 1),fontSize: 24.0,),),
-                                    SizedBox(width: 5,),
-                            Text("5000",style: GoogleFonts.interTight(color: Color.fromARGB(255, 78, 72, 15),fontSize: 24.0),)
+                                    Text("1000",style: GoogleFonts.interTight(color: const Color.fromRGBO(78, 72, 15, 1),fontSize: 24.0,),),
+                                    const SizedBox(width: 5,),
+                            Text("5000",style: GoogleFonts.interTight(color: const Color.fromARGB(255, 78, 72, 15),fontSize: 24.0),)
                                   ],
                                 ),
                                 Text("1 Year validity",style: GoogleFonts.rubik(color: Colors.black),)
@@ -91,13 +91,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 10,),
+                    const SizedBox(height: 10,),
                      Container(
                       height: 80,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.0),
-                        color: Color.fromRGBO(255, 255, 255, 1)
+                        color: const Color.fromRGBO(255, 255, 255, 1)
                       ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 10),
@@ -112,9 +112,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 Row(
                                   children: [
-                                    Text("1000",style: GoogleFonts.interTight(color: Color.fromRGBO(78, 72, 15, 1),fontSize: 24.0,),),
+                                    Text("1000",style: GoogleFonts.interTight(color: const Color.fromRGBO(78, 72, 15, 1),fontSize: 24.0,),),
                                     const SizedBox(width: 5,),
-                            Text("5000",style: GoogleFonts.interTight(color: Color.fromARGB(255, 78, 72, 15),fontSize: 24.0),)
+                            Text("5000",style: GoogleFonts.interTight(color: const Color.fromARGB(255, 78, 72, 15),fontSize: 24.0),)
                                   ],
                                 ),
                                 Text("6 Month validity",style: GoogleFonts.rubik(color: Colors.black),)
@@ -131,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.0),
-                        color: Color.fromRGBO(255, 255, 255, 1)
+                        color: const Color.fromRGBO(255, 255, 255, 1)
                       ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 10),
@@ -146,9 +146,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 Row(
                                   children: [
-                                    Text("999",style: GoogleFonts.interTight(color: Color.fromRGBO(78, 72, 15, 1),fontSize: 24.0,),),
-                                    SizedBox(width: 5,),
-                            Text("399",style: GoogleFonts.interTight(color: Color.fromARGB(255, 78, 72, 15),fontSize: 24.0),)
+                                    Text("999",style: GoogleFonts.interTight(color: const Color.fromRGBO(78, 72, 15, 1),fontSize: 24.0,),),
+                                    const SizedBox(width: 5,),
+                            Text("399",style: GoogleFonts.interTight(color: const Color.fromARGB(255, 78, 72, 15),fontSize: 24.0),)
                                   ],
                                 ),
                                 Text("12 Month validity",style: GoogleFonts.rubik(color: Colors.black),)
@@ -159,28 +159,28 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                  SizedBox(height: 10,),
+                  const SizedBox(height: 10,),
                    Container(
                     height: 80,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20.0),
-                      color: Color.fromRGBO(255, 255, 255, 1)
+                      color: const Color.fromRGBO(255, 255, 255, 1)
                     ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 10),
                       child: Row(
                         children: [
                           Image.asset("assets/images/silverstar.png",height: 30,width: 30,),
-                          SizedBox(width: 10,),
+                          const SizedBox(width: 10,),
                           Text("SILVER",style: GoogleFonts.interTight(color: Colors.black,fontSize: 20.0,fontWeight: FontWeight.w500)),
-                          SizedBox(width: 80,),
+                          const SizedBox(width: 80,),
                         
                           Column(
                             children: [
                               Row(
                                 children: [
-                                  Text("99",style: GoogleFonts.interTight(color: Color.fromRGBO(78, 72, 15, 1),fontSize: 24.0,),),
+                                  Text("99",style: GoogleFonts.interTight(color: const Color.fromRGBO(78, 72, 15, 1),fontSize: 24.0,),),
                                   const SizedBox(width: 5,),
                   
                                 ],
@@ -193,7 +193,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10,),
+                  const SizedBox(height: 10,),
                   Container(
                   height: 50,
                   width: double.infinity,
@@ -210,11 +210,11 @@ class _HomeScreenState extends State<HomeScreen> {
             Container(
              height: MediaQuery.of(context).size.height*0.8,
               width: double.infinity,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.black,
                 borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20))
               ),
-              child: Column(children: [
+              child: const Column(children: [
 
               ]),
           

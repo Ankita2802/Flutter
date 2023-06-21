@@ -1,6 +1,10 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 
 class MyPage extends StatefulWidget {
+  const MyPage({super.key});
+
   @override
   _MyPageState createState() => _MyPageState();
 }
@@ -18,7 +22,7 @@ class _MyPageState extends State<MyPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Expand Example'),
+        title: const Text('Expand Example'),
       ),
       body: GestureDetector(
         onTap: () {
@@ -32,7 +36,7 @@ class _MyPageState extends State<MyPage> {
             child: Center(
               child: Text(
                 isExpanded ? 'Expanded' : 'Tap to Expand',
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 24,
                 ),

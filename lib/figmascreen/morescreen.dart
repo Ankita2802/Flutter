@@ -83,7 +83,7 @@ class _MoreScreenState extends State<MoreScreen> {
               onTap:(){
                 setState((){
                  selectedIndex = index;
-                 print( dataList[index]['items'].map((e)=> e).toList());
+                 debugPrint( dataList[index]['items'].map((e)=> e).toList());
                 });
               },
               child: Container(
@@ -114,7 +114,7 @@ class _MoreScreenState extends State<MoreScreen> {
                           letterSpacing: -2.0,
                       ),
                     ),
-                  SizedBox(width: 100,),
+                  const SizedBox(width: 100,),
                   Column(
                     children: [
                       Row(children: [
@@ -144,7 +144,7 @@ class _MoreScreenState extends State<MoreScreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Image.asset(dataList[index]['image'].toString(),height: 20,width: 20,),
-                            SizedBox(width: 2,),
+                            const SizedBox(width: 2,),
                             Text(
                             e,
                             style: GoogleFonts.rubik(
