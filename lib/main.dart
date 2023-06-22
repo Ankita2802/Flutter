@@ -4,7 +4,7 @@ import 'package:figma/provider/provider_con/theme_provider.dart';
 import 'package:figma/provider/screens/Favorite%20App/Favorite_provider.dart';
 import 'package:figma/provider/screens/RestApi/get_provider.dart';
 import 'package:figma/provider/screens/RestApi/loginApi/login_screen.dart';
-import 'package:figma/provider/screens/RestApi/provider/auth_provider.dart';
+// import 'package:figma/provider/screens/RestApi/provider/auth_provider.dart';
 // import 'package:figma/provider/screens/RestApi/staless.dart';
 // import 'package:figma/provider/screens/RestApi/pets_screen.dart';
 // import 'package:figma/provider/screens/themechange/darktheme.dart';

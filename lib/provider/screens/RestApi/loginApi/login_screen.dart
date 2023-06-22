@@ -49,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: Colors.amber,
                       borderRadius: BorderRadius.circular(20.0),
                     ),
-                    child: Center(child:authprovider.isloading? CircularProgressIndicator(color: Colors.black,):Text("Login")),
+                    child: Center(child:authprovider.isloading? const CircularProgressIndicator(color: Colors.black,):const Text("Login")),
                   ),
                 )
           ]),
