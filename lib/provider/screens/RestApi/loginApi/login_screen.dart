@@ -1,6 +1,8 @@
-import 'package:figma/provider/screens/RestApi/provider/auth_provider.dart';
+// import 'package:figma/provider/screens/RestApi/provider/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../../auth_provider.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 

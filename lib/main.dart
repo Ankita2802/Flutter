@@ -1,9 +1,13 @@
+import 'package:figma/provider/auth_provider.dart';
 import 'package:figma/provider/provider_con/count_provider.dart';
 import 'package:figma/provider/provider_con/exaone_provider.dart';
 import 'package:figma/provider/provider_con/theme_provider.dart';
 import 'package:figma/provider/screens/Favorite%20App/Favorite_provider.dart';
 import 'package:figma/provider/screens/RestApi/get_provider.dart';
-import 'package:figma/provider/screens/RestApi/loginApi/login_screen.dart';
+import 'package:figma/provider/utils/routes/route_name.dart';
+import 'package:figma/provider/utils/routes/routes.dart';
+// import 'package:figma/provider/screens/RestApi/loginApi/login_screen.dart';
+// import 'package:figma/provider/view/loginscreen.dart';
 // import 'package:figma/provider/screens/RestApi/provider/auth_provider.dart';
 // import 'package:figma/provider/screens/RestApi/staless.dart';
 // import 'package:figma/provider/screens/RestApi/pets_screen.dart';
@@ -48,7 +52,9 @@ class MyApp extends StatelessWidget {
           color: Colors.amber
          )
       ),
-      home: const LoginScreen(),
+      initialRoute: RoutesName.signin,
+      onGenerateRoute: Routes.genrateRoute,
+      // home: const SigninScreen(),
 
       // home: BottomNavScreen(),
     );
