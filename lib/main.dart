@@ -6,6 +6,7 @@ import 'package:figma/provider/screens/Favorite%20App/Favorite_provider.dart';
 import 'package:figma/provider/screens/RestApi/get_provider.dart';
 import 'package:figma/provider/utils/routes/route_name.dart';
 import 'package:figma/provider/utils/routes/routes.dart';
+import 'package:figma/provider/view_model/auth_view_model.dart';
 // import 'package:figma/provider/screens/RestApi/loginApi/login_screen.dart';
 // import 'package:figma/provider/view/loginscreen.dart';
 // import 'package:figma/provider/screens/RestApi/provider/auth_provider.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => ThemeChangeProvider()),
         ChangeNotifierProvider(create: (context) => Getproductprovider(),),
         ChangeNotifierProvider(create: (context) => AuthProvider(),),
+        ChangeNotifierProvider(create: (context) => AuthViewModel(),),
       ],
       //  create: (context) => CounterProvider(),
        child:Builder(builder: (BuildContext context) {
