@@ -36,7 +36,9 @@ dependencies:
   http: any
   flutter_spinkit: any
   fluttertoast: ^8.2.2
+  shared_preferences: ^2.1.2
   another_flushbar: ^1.12.30
+  websafe_svg: any
 
 
   # The following adds the Cupertino Icons font to your application.

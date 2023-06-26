@@ -1,11 +1,12 @@
+// import 'package:figma/Responsivee/web-view/youtubedemo.dart';
 import 'package:figma/provider/auth_provider.dart';
 import 'package:figma/provider/provider_con/count_provider.dart';
 import 'package:figma/provider/provider_con/exaone_provider.dart';
 import 'package:figma/provider/provider_con/theme_provider.dart';
 import 'package:figma/provider/screens/Favorite%20App/Favorite_provider.dart';
 import 'package:figma/provider/screens/RestApi/get_provider.dart';
-import 'package:figma/provider/utils/routes/route_name.dart';
-import 'package:figma/provider/utils/routes/routes.dart';
+// import 'package:figma/provider/utils/routes/route_name.dart';
+// import 'package:figma/provider/utils/routes/routes.dart';
 import 'package:figma/provider/view_model/auth_view_model.dart';
 // import 'package:figma/provider/screens/RestApi/loginApi/login_screen.dart';
 // import 'package:figma/provider/view/loginscreen.dart';
@@ -15,6 +16,12 @@ import 'package:figma/provider/view_model/auth_view_model.dart';
 // import 'package:figma/provider/screens/themechange/darktheme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'Responsivee/web-view/youtubedemo.dart';
+
+// import 'Responsivee/web-view/mobile_body.dart';
+
+// import 'Responsivee/web-view/chessboard.dart';
 void main(){
   runApp(const MyApp());
 }
@@ -54,9 +61,9 @@ class MyApp extends StatelessWidget {
           color: Colors.amber
          )
       ),
-      initialRoute: RoutesName.signin,
-      onGenerateRoute: Routes.genrateRoute,
-      // home: const SigninScreen(),
+      // initialRoute: RoutesName.signin,
+      // onGenerateRoute: Routes.genrateRoute,
+      home: const YouTubeDemo(),
 
       // home: BottomNavScreen(),
     );
