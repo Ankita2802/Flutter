@@ -81,6 +81,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  entry:
+    dependency: "direct main"
+    description:
+      name: entry
+      sha256: "6ba2522ca2196c5b43f659d386c04ec04ebf667236d53ed8b896df5a932f685a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.8+1"
   fake_async:
     dependency: transitive
     description:
@@ -336,6 +344,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.5"
+  responsive_builder:
+    dependency: "direct main"
+    description:
+      name: responsive_builder
+      sha256: a38ba9ba86c9daf08904674553034b651377b1d685d10ee450d8350ae51f76ec
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.7.0"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -392,6 +408,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.0"
+  simple_animations:
+    dependency: transitive
+    description:
+      name: simple_animations
+      sha256: "1ea7b93fb98e2a611b6865d632de55607b766328d14700143353129ee0559d3a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.0.2"
   sky_engine:
     dependency: transitive
     description: flutter

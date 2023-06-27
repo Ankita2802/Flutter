@@ -1,10 +1,11 @@
 // import 'package:figma/Responsivee/web-view/youtubedemo.dart';
-import 'package:figma/Responsivee/Dashboard/desktop_scaffold.dart';
-import 'package:figma/Responsivee/Dashboard/mobile_scaffold.dart';
+// import 'package:figma/Responsivee/Dashboard/desktop_scaffold.dart';
+// import 'package:figma/Responsivee/Dashboard/mobile_scaffold.dart';
 import 'package:figma/Saas%20Landing%20web%20figma/Responsive_mode/desktop_mode.dart';
 import 'package:figma/Saas%20Landing%20web%20figma/Responsive_mode/mobile_mode.dart';
 import 'package:figma/Saas%20Landing%20web%20figma/Responsive_mode/responsivemode_layout.dart';
 import 'package:figma/Saas%20Landing%20web%20figma/Responsive_mode/tablet_mode.dart';
+import 'package:figma/Saas%20Landing%20web%20figma/Utills/colors.dart';
 // import 'package:figma/Responsivee/web-view/reponsive.dart';
 import 'package:figma/provider/auth_provider.dart';
 import 'package:figma/provider/provider_con/count_provider.dart';
@@ -24,8 +25,8 @@ import 'package:figma/provider/view_model/auth_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'Responsivee/Dashboard/responsive_layout.dart';
-import 'Responsivee/Dashboard/tablet_scaffold.dart';
+// import 'Responsivee/Dashboard/responsive_layout.dart';
+// import 'Responsivee/Dashboard/tablet_scaffold.dart';
 // import 'Responsivee/web-view/youtubedemo.dart';
 
 // import 'Responsivee/web-view/mobile_body.dart';
@@ -54,10 +55,13 @@ class MyApp extends StatelessWidget {
           final themeChanger =Provider.of<ThemeChangeProvider>(context);
          return MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: 'Xpense',
       themeMode: themeChanger.themeMode,
       theme: ThemeData(
+        fontFamily: 'HindSiliguri',
         brightness: Brightness.light,
         primarySwatch: Colors.red,
+        primaryColor: AppColors.Primary,
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
@@ -77,7 +81,7 @@ class MyApp extends StatelessWidget {
       //  tabletScaffold:  TabletScaffold(),
       //  desktopScaffold: DesktopScaffold(),
       // ),
-      home: MyResponsiveLayout(
+      home: const MyResponsiveLayout(
         mobileMode: MyMobileMode(),
         tabletMode: MyTabletMode(),
         desktopMode: MyDesktopMode(),
