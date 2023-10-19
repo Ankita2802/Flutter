@@ -10,24 +10,31 @@ class Container1 extends StatefulWidget {
 class _Container1State extends State<Container1> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
+    return Row(
         // mainAxisAlignment: MainAxisAlignment.start,
         children: [
-        Expanded(
-          child: Container(
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Track your \n Expenses to \n Save Money",style: const TextStyle(color: Colors.black,fontWeight: FontWeight.w900,height: 1.2,fontSize: 50),),
-                const SizedBox(height: 20,),
-                Text("Helps you to organize your income and expenses",style: TextStyle(color:Colors.grey.shade400,fontSize: 16),),
-
+                const Text(
+                  "Track your \n Expenses to \n Save Money",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w900,
+                      height: 1.2,
+                      fontSize: 50),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  "Helps you to organize your income and expenses",
+                  style: TextStyle(color: Colors.grey.shade400, fontSize: 16),
+                ),
               ],
             ),
-          ),
-        )
-      ]),
-    );
+          )
+        ]);
   }
 }

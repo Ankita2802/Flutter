@@ -2,6 +2,7 @@ import 'package:figma/provider/screens/RestApi/get_provider.dart';
 import 'package:figma/provider/screens/RestApi/models/petsModel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 // import 'package:flutter_spinkit/flutter_spinkit.dart';
 class PetsScreen extends StatefulWidget {
   const PetsScreen({super.key});
@@ -13,13 +14,14 @@ class PetsScreen extends StatefulWidget {
 class _PetsScreenState extends State<PetsScreen> {
   @override
   void initState() {
-    final provider=Provider.of<Getproductprovider>(context,listen: false);
+    final provider = Provider.of<Getproductprovider>(context, listen: false);
     provider.GetDatafromApi();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-    final provider=Provider.of<Getproductprovider>(context,listen: false);
+    final provider = Provider.of<Getproductprovider>(context, listen: false);
     // provider.GetDatafromApi();
     return Scaffold(
       appBar: AppBar(
@@ -27,32 +29,34 @@ class _PetsScreenState extends State<PetsScreen> {
         centerTitle: true,
         backgroundColor: Colors.red,
       ),
-      body: provider.isLoading ? 
-      getLoadingUi()
-      :provider.Error.isNotEmpty
-      ?getErrorUi(provider.Error)
-      :getBodyUi(provider.pets),
+      body: provider.isLoading
+          ? getLoadingUi()
+          : provider.Error.isNotEmpty
+              ? getErrorUi(provider.Error)
+              : getBodyUi(provider.pets),
     );
   }
-  
+
   Widget getLoadingUi() {
     return const Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children:[
+      child: Column(mainAxisSize: MainAxisSize.min, children: [
         CircularProgressIndicator(
           color: Colors.blue,
-          
         ),
-      Text("Loading",style: TextStyle(color: Colors.blue,fontSize: 30.0),)
+        Text(
+          "Loading",
+          style: TextStyle(color: Colors.blue, fontSize: 30.0),
+        )
       ]),
     );
-  
   }
-  
+
   Widget getErrorUi(String error) {
     return Center(
-      child: Text(error,style: const TextStyle(color: Colors.red,fontSize: 24.0),),
+      child: Text(
+        error,
+        style: const TextStyle(color: Colors.red, fontSize: 24.0),
+      ),
     );
   }
 
@@ -68,7 +72,12 @@ class _PetsScreenState extends State<PetsScreen> {
           ),
           title: Text(pets.data[index].userName),
           subtitle: Text(pets.data[index].petName),
-          trailing: pets.data[index].isFriendly?const SizedBox():const Icon(Icons.pets,color: Colors.red,),
+          trailing: pets.data[index].isFriendly
+              ? const SizedBox()
+              : const Icon(
+                  Icons.pets,
+                  color: Colors.red,
+                ),
         );
       },
     );
