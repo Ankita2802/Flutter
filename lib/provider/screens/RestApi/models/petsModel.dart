@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'dart:convert';
 
 Pets petsFromJson(String str) => Pets.fromJson(json.decode(str));

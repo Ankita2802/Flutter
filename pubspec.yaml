@@ -21,6 +21,7 @@ dependencies:
   responsive_builder: ^0.7.0
   entry: ^0.0.8+1
   get: ^4.6.6
+  image_picker: ^1.0.4
 
 
 

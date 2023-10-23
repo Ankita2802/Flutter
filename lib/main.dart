@@ -121,7 +121,7 @@ class MyAppGet extends StatelessWidget {
       ),
       translations: Languages(),
       fallbackLocale: const Locale('en', 'US'),
-      locale: Locale('en', 'US'),
+      locale: const Locale('en', 'US'),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         primarySwatch: Colors.purple,

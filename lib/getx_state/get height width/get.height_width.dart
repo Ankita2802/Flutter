@@ -12,8 +12,8 @@ class GetxHeightWidth extends StatefulWidget {
 class _GetxHeightWidthState extends State<GetxHeightWidth> {
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
+    // final height = MediaQuery.of(context).size.height;
+    // final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Getx height width state'),

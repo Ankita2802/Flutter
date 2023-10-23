@@ -1,4 +1,10 @@
+import 'package:figma/getx_state/api_calling/auth_login/login_screen.dart';
+import 'package:figma/getx_state/coutnter_exam.dart/counter.dart';
+import 'package:figma/getx_state/favorite%20app/favoriteapp.dart';
+import 'package:figma/getx_state/image_picker/image_screen.dart';
+import 'package:figma/getx_state/opacity/opacity_example.dart';
 import 'package:figma/getx_state/get%20traslated/trans_langua.dart';
+import 'package:figma/getx_state/notifications/notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -20,6 +26,8 @@ class _HomeScreengetState extends State<HomeScreenget> {
         backgroundColor: Colors.red,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Card(
             child: ListTile(
@@ -118,6 +126,42 @@ class _HomeScreengetState extends State<HomeScreenget> {
               Get.to(const TraslatedLanguages());
             },
             child: const Text("go to Language Translation"),
+          ),
+          TextButton(
+            onPressed: () {
+              Get.to(const CountExample());
+            },
+            child: const Text("go to counter Example"),
+          ),
+          TextButton(
+            onPressed: () {
+              Get.to(const OpacityExample());
+            },
+            child: const Text("go to opacity Example"),
+          ),
+          TextButton(
+            onPressed: () {
+              Get.to(const NotificationScreen());
+            },
+            child: const Text("go to notifications Example"),
+          ),
+          TextButton(
+            onPressed: () {
+              Get.to(const FavoriteApp());
+            },
+            child: const Text("go to Favourite Example"),
+          ),
+          TextButton(
+            onPressed: () {
+              Get.to(const ImageScreen());
+            },
+            child: const Text("go to Imagepicker Example"),
+          ),
+          TextButton(
+            onPressed: () {
+              Get.to(const LoginAuthScreen());
+            },
+            child: const Text("go to Api  Example"),
           ),
         ],
       ),

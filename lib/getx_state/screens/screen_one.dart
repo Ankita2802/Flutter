@@ -15,7 +15,7 @@ class _ScreenoneState extends State<Screenone> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('First screen ' + Get.arguments[0]),
+        title: Text(Get.arguments[0] + 'First screen '),
         centerTitle: true,
         backgroundColor: Colors.red,
       ),
