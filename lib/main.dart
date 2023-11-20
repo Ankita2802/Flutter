@@ -28,16 +28,16 @@
 // import 'Responsivee/web-view/mobile_body.dart';
 // import 'Responsivee/web-view/chessboard.dart';
 
-import 'package:figma/getx_state/get%20traslated/languages.dart';
-import 'package:figma/getx_state/home_screen.dart';
-import 'package:figma/getx_state/screens/screen_one.dart';
-import 'package:figma/getx_state/screens/screen_two.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+// import 'package:figma/getx_state/get%20traslated/languages.dart';
+// import 'package:figma/getx_state/home_screen.dart';
+// import 'package:figma/getx_state/screens/screen_one.dart';
+// import 'package:figma/getx_state/screens/screen_two.dart';
+// import 'package:flutter/material.dart';
+// import 'package:get/get_navigation/get_navigation.dart';
 
-void main() {
-  runApp(const MyAppGet());
-}
+// void main() {
+//   runApp(const MyAppGet());
+// }
 // // this comment for provider response screen
 // class MyApp extends StatelessWidget {
 //   const MyApp({super.key});
@@ -110,41 +110,82 @@ void main() {
 // }
 
 // this comment for getx state management
-class MyAppGet extends StatelessWidget {
-  const MyAppGet({super.key});
+
+// class MyAppGet extends StatelessWidget {
+//   const MyAppGet({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return GetMaterialApp(
+//       theme: ThemeData(
+//         primarySwatch: Colors.blue,
+//       ),
+//       translations: Languages(),
+//       fallbackLocale: const Locale('en', 'US'),
+//       locale: const Locale('en', 'US'),
+//       darkTheme: ThemeData(
+//         brightness: Brightness.dark,
+//         primarySwatch: Colors.purple,
+//         primaryColor: Colors.yellow,
+//         appBarTheme: const AppBarTheme(
+//           backgroundColor: Colors.red,
+//         ),
+//       ),
+//       home: const HomeScreenget(),
+//       getPages: [
+//         GetPage(
+//           name: '/',
+//           page: () => const HomeScreenget(),
+//         ),
+//         GetPage(
+//           name: '/screenone',
+//           page: () => Screenone(),
+//         ),
+//         GetPage(
+//           name: '/screentwo',
+//           page: () => const SecondScreen(),
+//         ),
+//       ],
+//     );
+//   }
+// }
+
+//this comment for riverpod state management
+
+import 'package:figma/Riverpod/changenotifier/changeprovider.dart';
+import 'package:figma/Riverpod/home_screen.dart';
+import 'package:figma/Riverpod/provider/counter_provider.dart';
+import 'package:figma/Riverpod/provider/userprovider.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final helloworldprovider = Provider<String>((ref) => 'Helo world');
+final nameprovider = Provider<String>((ref) => 'hello ankita');
+final countprovider = StateProvider(<int>(ref) => 0);
+final countProviderdemo =
+    StateNotifierProvider<Countprovider, int>((ref) => Countprovider());
+final userprovider =
+    StateNotifierProvider<UserProvider, User>((ref) => UserProvider());
+
+final userchanageprovider = ChangeNotifierProvider(
+    (ref) => Username(name: 'Shirsh Shukla', datetime: DateTime(1995, 4, 5)));
+void main() {
+  runApp(
+    const ProviderScope(child: MyApp()),
+  );
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
+      home: const HomeRiverpodScreen(),
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.blue,
       ),
-      translations: Languages(),
-      fallbackLocale: const Locale('en', 'US'),
-      locale: const Locale('en', 'US'),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        primarySwatch: Colors.purple,
-        primaryColor: Colors.yellow,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.red,
-        ),
-      ),
-      home: const HomeScreenget(),
-      getPages: [
-        GetPage(
-          name: '/',
-          page: () => const HomeScreenget(),
-        ),
-        GetPage(
-          name: '/screenone',
-          page: () => Screenone(),
-        ),
-        GetPage(
-          name: '/screentwo',
-          page: () => const SecondScreen(),
-        ),
-      ],
     );
   }
 }

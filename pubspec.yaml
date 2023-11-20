@@ -22,6 +22,8 @@ dependencies:
   entry: ^0.0.8+1
   get: ^4.6.6
   image_picker: ^1.0.4
+  video_player: ^2.8.1
+  flutter_riverpod: ^2.4.4
 
 
 
