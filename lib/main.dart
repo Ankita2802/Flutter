@@ -150,12 +150,11 @@
 //   }
 // }
 
-//this comment for riverpod state management
-
 import 'package:figma/Riverpod/changenotifier/changeprovider.dart';
-import 'package:figma/Riverpod/home_screen.dart';
 import 'package:figma/Riverpod/provider/counter_provider.dart';
 import 'package:figma/Riverpod/provider/userprovider.dart';
+import 'package:figma/fluxstore_api_with_riverpod/provider/auth_provider.dart';
+import 'package:figma/fluxstore_api_with_riverpod/screens/auth_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -169,6 +168,16 @@ final userprovider =
 
 final userchanageprovider = ChangeNotifierProvider(
     (ref) => Username(name: 'Shirsh Shukla', datetime: DateTime(1995, 4, 5)));
+
+final streamprovider = StreamProvider<int>((ref) => Stream.periodic(
+      const Duration(seconds: 2),
+      // ignore: non_constant_identifier_names
+      ((Computationcount) => Computationcount),
+    ));
+
+final authchangeprovider =
+    ChangeNotifierProvider<AuthProvider>((ref) => AuthProvider());
+
 void main() {
   runApp(
     const ProviderScope(child: MyApp()),
@@ -181,7 +190,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const HomeRiverpodScreen(),
+      home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.blue,

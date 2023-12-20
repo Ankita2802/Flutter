@@ -1,7 +1,9 @@
 import 'package:figma/Riverpod/changenotifier/userchange_screen.dart';
+import 'package:figma/Riverpod/futureprovider/getuser_api.dart';
 import 'package:figma/Riverpod/statenotifier/count_ex.dart';
 import 'package:figma/Riverpod/stateful.dart';
 import 'package:figma/Riverpod/statenotifier/userdertailscreen.dart';
+import 'package:figma/Riverpod/streamprovider/stream_screen.dart';
 import 'package:figma/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -63,6 +65,20 @@ class HomeRiverpodScreen extends ConsumerWidget {
                         builder: (context) => const UserChangeScreen()));
               },
               child: const Text("go to User Changenotifier screen"),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const UserGetApi()));
+              },
+              child: const Text("go to User Futureprovider screen"),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const StreanScreen()));
+              },
+              child: const Text("go to User Streamprovider screen"),
             ),
           ],
         ),

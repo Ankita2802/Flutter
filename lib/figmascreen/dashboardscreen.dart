@@ -71,5 +71,6 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
       ),
       body:Pages.elementAt(_currentindex) ,
     );
+  
   }
 }

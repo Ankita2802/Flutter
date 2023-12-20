@@ -28,7 +28,7 @@ class CounteriverExample extends ConsumerWidget {
           IconButton(
             onPressed: () {
               // ref.invalidate(countprovider);
-              ref.refresh(countProviderdemo);
+              // ref.refresh(countProviderdemo);
             },
             icon: const Icon(Icons.refresh),
           )
@@ -54,7 +54,7 @@ class CounteriverExample extends ConsumerWidget {
                   borderRadius: BorderRadius.circular(10.0),
                   color: Colors.grey.shade200,
                 ),
-                child: Center(
+                child: const Center(
                   child: Icon(
                     Icons.minimize,
                     size: 30,

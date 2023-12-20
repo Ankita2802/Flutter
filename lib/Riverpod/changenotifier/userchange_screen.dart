@@ -14,7 +14,7 @@ class _UserChangeScreenState extends State<UserChangeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('User Detail Screen'),
+        title: const Text('User Detail Screen'),
         centerTitle: true,
         backgroundColor: Colors.red,
       ),
@@ -40,7 +40,7 @@ class _UserChangeScreenState extends State<UserChangeScreen> {
                               .read(userchanageprovider.notifier)
                               .setname('Sneharsh');
                         },
-                        child: Icon(Icons.send),
+                        child: const Icon(Icons.send),
                       ),
                     ],
                   ),

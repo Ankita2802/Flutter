@@ -9,7 +9,7 @@ class UserDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('User Detail Screen'),
+        title: const Text('User Detail Screen'),
         centerTitle: true,
         backgroundColor: Colors.red,
       ),
@@ -33,7 +33,7 @@ class UserDetailScreen extends StatelessWidget {
                         onPressed: () {
                           ref.read(userprovider.notifier).setname('Sneharsh');
                         },
-                        child: Icon(Icons.send),
+                        child: const Icon(Icons.send),
                       ),
                     ],
                   ),
